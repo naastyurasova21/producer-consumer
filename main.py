@@ -110,16 +110,16 @@ class Consumer(threading.Thread):
         else:
             return "Неизвестная операция"
 
-def statistic():
-    oper_count = {}
-    for result in res:
-        if result.oper not in oper_count:
-            oper_count[result.oper] = 1
-        else:
-            oper_count[result.oper] += 1
-    print(f'всего задач: {len(res)}')
-    for op, count in oper_count.items():
-        print(f"  {op}: {count} задач")
+# def statistic():
+#     oper_count = {}
+#     for result in res:
+#         if result.oper not in oper_count:
+#             oper_count[result.oper] = 1
+#         else:
+#             oper_count[result.oper] += 1
+#     print(f'всего задач: {len(res)}')
+#     for op, count in oper_count.items():
+#         print(f"  {op}: {count} задач")
 
 def main():
     start_time = time.time()
@@ -143,7 +143,7 @@ def main():
         for consumer in consumers:
             consumer.join()
         print("Все потоки завершены")
-        statistic()
+        # statistic()
         end_time = time.time()
         total_time = end_time - start_time
         print(f'Время выполнения: {total_time:.2f}')
